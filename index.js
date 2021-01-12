@@ -38,6 +38,35 @@
   }
 
   /**
+   * 按照区间生成随机数
+   *
+   * @param {number} min 最小值 默认0
+   * @param {number} max 最大值 默认1
+   * @param {number} number 要生成几个随机数
+   * @returns {number|array}  生成的随机数 [min, max] 左闭右闭区间
+   *
+   * getRoundNumber(5, 15, 3)
+   * => [9, 6, 13]
+   *
+   * getRoundNumber(6, 20, 1)
+   * => 10
+   */
+  function getRoundNumber() {
+    var min = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
+    var max = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 1;
+    var number = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 1;
+    var tempMin = Math.ceil(min);
+    var tempMax = Math.floor(max);
+    var result = [];
+
+    for (var i = 0; i < number; i++) {
+      result.push(Math.floor(Math.random() * (tempMax - tempMin + 1)) + tempMin);
+    }
+
+    return number === 1 ? result[0] : result;
+  }
+
+  /**
    * 格式化价格(每隔3位一个逗号)
    *
    * @param {number} price 价格
@@ -72,39 +101,46 @@
   }
 
   /**
-   * 按照区间生成随机数
+   * 获取当前时间戳
    *
-   * @param {number} min 最小值 默认0
-   * @param {number} max 最大值 默认1
-   * @param {number} number 要生成几个随机数
-   * @returns {number|array}  生成的随机数 [min, max] 左闭右闭区间
+   * @returns {number} 当前时间戳
    *
-   * getRoundNumber(5, 15, 3)
-   * => [9, 6, 13]
-   *
-   * getRoundNumber(6, 20, 1)
-   * => 10
+   * getNowTime()
+   * => 1610431852976
    */
-  function getRoundNumber() {
-    var min = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
-    var max = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 1;
-    var number = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 1;
-    var tempMin = Math.ceil(min);
-    var tempMax = Math.floor(max);
-    var result = [];
-
-    for (var i = 0; i < number; i++) {
-      result.push(Math.floor(Math.random() * (tempMax - tempMin + 1)) + tempMin);
-    }
-
-    return number === 1 ? result[0] : result;
+  function getNowTime() {
+    return Date.now();
   }
 
+  /**
+   * 获取某个日期对应的时间戳
+   *
+   * @param {string} date 要获取的日期, 默认为当前日期
+   * @returns {number} 该日期对应的时间戳 单位毫秒
+   *
+   * getTimeStamp('2014/07/10 10:21:12')
+   * => 1558598298166
+   *
+   * getTimeStamp()
+   * => 1558598298166
+   *
+   * getTimeStamp('2014-07-10 10:21:12')
+   * => 1558598298166
+   *
+   */
+  function getTimeStamp(date) {
+    var dateString = new Date(date ? date.replace(/-/g, "/") : new Date());
+    return dateString;
+  }
+
+  // array
   var JSUtil = {
     tostringFun: tostringFun,
     arrAttrUnique: arrAttrUnique,
+    getRoundNumber: getRoundNumber,
     formatPrice: formatPrice,
-    getRoundNumber: getRoundNumber
+    getNowTime: getNowTime,
+    getTimeStamp: getTimeStamp
   };
 
   return JSUtil;
