@@ -133,6 +133,78 @@
     return dateString;
   }
 
+  /**
+   * 格式化时间戳
+   *
+   * @param {number} timeStamp 时间戳, 默认为当前日期对应的时间戳, 单位毫秒
+   * @returns {object} 被格式化后的对象 { year: 2019, month: 5, day: 23, hour: 23, minute: 26, second: 11, millisecond: 753 }
+   *
+   * formatDate()
+   * => { year: 2019, month: 5, day: 23, hour: 23, minute: 26, second: 11, millisecond: 753 }
+   *
+   * formatDate(1558622540000)
+   * => { year: 2019, month: 5, day: 23, hour: 22, minute: 42, second: 20, millisecond: 0 }
+   *
+   * formatDate(-1378218728000) 参数可以是负整数，代表1970年元旦之前的时间
+   * => { year: 1926, month: 4, day: 30, hour: 17, minute: 27, second: 52, millisecond: 0 }
+   */
+  function formatdate() {
+    var timeStamp = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : Date.now();
+    var date = new Date(timeStamp);
+    return {
+      year: date.getFullYear(),
+      month: date.getMonth() + 1,
+      day: date.getDate(),
+      hour: date.getHours(),
+      minute: date.getMinutes(),
+      second: date.getSeconds(),
+      millisecond: date.getMilliseconds()
+    };
+  }
+
+  /**
+   * 格式化倒计时时间
+   *
+   * @param {number} timeStamp 时间戳 (两个时间戳的差值) 单位毫秒
+   * @returns {object} 被格式化后的对象
+   *
+   * formatCountDown(642567521)
+   * => { day: 7, hour: 10, minute: 29, second: 27, millisecond: 521 }
+   *
+   * formatCountDown(-123)
+   * => { day: 0, hour: 0, minute: 0, second: 0, millisecond: 0 }
+   * 在业务中可以判断展示时分秒，也可以判断为0不展示等业务操作
+   */
+  function formatCountDown(timeStamp) {
+    if (timeStamp <= 0) {
+      return {
+        day: 0,
+        hour: 0,
+        minute: 0,
+        second: 0,
+        millisecond: 0
+      };
+    }
+
+    var dayStamp = 24 * 60 * 60 * 1000;
+    var hourStamp = 60 * 60 * 1000;
+    var minuteStamp = 60 * 1000;
+    var secondStamp = 1000;
+    var millisecondStamp = 1000;
+    var day = timeStamp / dayStamp | 0;
+    var hour = timeStamp % dayStamp / hourStamp | 0;
+    var minute = timeStamp % dayStamp % hourStamp / minuteStamp | 0;
+    var second = timeStamp % dayStamp % hourStamp % minuteStamp / secondStamp | 0;
+    var millisecond = timeStamp % dayStamp % hourStamp % minuteStamp % millisecondStamp;
+    return {
+      day: day,
+      hour: hour,
+      minute: minute,
+      second: second,
+      millisecond: millisecond
+    };
+  }
+
   // array
   var JSUtil = {
     tostringFun: tostringFun,
@@ -140,7 +212,9 @@
     getRoundNumber: getRoundNumber,
     formatPrice: formatPrice,
     getNowTime: getNowTime,
-    getTimeStamp: getTimeStamp
+    getTimeStamp: getTimeStamp,
+    formatdate: formatdate,
+    formatCountDown: formatCountDown
   };
 
   return JSUtil;

@@ -9,6 +9,8 @@ import formatPrice from "./number/formatPrice";
 // formatdate
 import getNowTime from "./formatdate/getNowTime";
 import getTimeStamp from "./formatdate/getTimeStamp";
+import formatdate from "./formatdate/formatdate";
+import formatCountDown from "./formatdate/formatCountDown";
 
 const JSUtil = {
   tostringFun,
@@ -17,5 +19,7 @@ const JSUtil = {
   formatPrice,
   getNowTime,
   getTimeStamp,
+  formatdate,
+  formatCountDown,
 };
 export default JSUtil;
