@@ -205,6 +205,51 @@
     };
   }
 
+  /**
+   * 去除字符串中的所有空格
+   *
+   * @param {String} str 有空格的字符串
+   *
+   * trim(' yu yu ')
+   * => 'yuyu'
+   */
+  function trim(str) {
+    return str.replace(/\s+/g, "");
+  }
+
+  /**
+   * 去除字符串前面的空格
+   *
+   * @param {String} str 有空格的字符串
+   * trim(' yu yu ')
+   * => 'yu yu '
+   */
+  function trimStart(str) {
+    return str.replace(/(^\s*)/g, "");
+  }
+
+  /**
+   * 去除字符串后面的空格
+   *
+   * @param {String} str 有空格的字符串
+   * trim(' yu yu ')
+   * => ' yu yu'
+   */
+  function trimEnd(str) {
+    return str.replace(/(\s*$)/g, "");
+  }
+
+  /**
+   * 去除字符串前后的空格
+   *
+   * @param {String} str 有空格的字符串
+   * trim(' yu yu ')
+   * => 'yu yu'
+   */
+  function trimStartEnd(str) {
+    return str.replace(/(^\s*)|(\s*$)/g, "");
+  }
+
   // array
   var JSUtil = {
     tostringFun: tostringFun,
@@ -214,7 +259,11 @@
     getNowTime: getNowTime,
     getTimeStamp: getTimeStamp,
     formatdate: formatdate,
-    formatCountDown: formatCountDown
+    formatCountDown: formatCountDown,
+    trim: trim,
+    trimStart: trimStart,
+    trimEnd: trimEnd,
+    trimStartEnd: trimStartEnd
   };
 
   return JSUtil;
