@@ -2,7 +2,7 @@
   "name": "jsutils",
   "version": "1.0.0",
   "description": "JavaScript工具类方法",
-  "main": "dist/index.js",
+  "main": "index.js",
   "scripts": {
     "test": "jest",
     "build:dev": "rollup -c",
