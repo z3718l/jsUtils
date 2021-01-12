@@ -1,5 +1,7 @@
 import babel from "rollup-plugin-babel";
 import serve from "rollup-plugin-serve";
+import { uglify } from "rollup-plugin-uglify";
+
 export default {
   input: "./src/index.js", // 以哪个文件作为打包入口
   output: {
@@ -20,6 +22,6 @@ export default {
           port: 3001,
           contentBase: "",
         })
-      : null,
+      : uglify(),
   ],
 };
