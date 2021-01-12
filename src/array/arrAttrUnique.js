@@ -1,11 +1,12 @@
 /**
+ * 根据数组对象中某个属性进行去重
  *
- * @param {Array, String}
- * @param {arrList = [], key = 'id'}
+ * @param {Array} arrList 需要去重的数组
+ * @param {String} key 需要根据哪个属性进行去重
+ * @returns {Array} 去重之后返回的新数组
+ *
  * arrAttrUnique([{id: 1, name: 'zhangsan'}, {id: 2, name: 'lisi'}, {id: 1, name: 'wangwu'}])
  * => [{id: 1, name: 'zhangsan}, {id: 2, name: 'lisi'}]
- * arrList：需要去重的数组
- * key：需要根据哪个属性进行去重
  */
 
 function arrAttrUnique(arrList = [], key = "id") {
