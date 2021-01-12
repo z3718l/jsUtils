@@ -1,5 +1,5 @@
-import tostringFun from "./utils/tostring";
-import arrAttrUnique from "./utils/arrAttrUnique";
+import tostringFun from "./array/tostring";
+import arrAttrUnique from "./array/arrAttrUnique";
 const JSUtil = {
   tostringFun,
   arrAttrUnique,
