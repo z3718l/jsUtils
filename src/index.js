@@ -11,6 +11,8 @@ import getNowTime from "./formatdate/getNowTime";
 import getTimeStamp from "./formatdate/getTimeStamp";
 import formatdate from "./formatdate/formatdate";
 import formatCountDown from "./formatdate/formatCountDown";
+import isBrforeTime from "./formatdate/isBrforeTime";
+import isAfterTime from "./formatdate/isAfterTime";
 
 // String
 import trim from "./string/trim";
@@ -27,6 +29,8 @@ const JSUtil = {
   getTimeStamp,
   formatdate,
   formatCountDown,
+  isBrforeTime,
+  isAfterTime,
   trim,
   trimStart,
   trimEnd,

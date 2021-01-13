@@ -206,6 +206,42 @@
   }
 
   /**
+   * 判断当前时间是否在指定时间之前
+   *
+   * @param {string} date 参照的时间
+   * @returns {bool} true: 当前时间小于参照时间；false: 当前时间大于等于参照时间
+   *
+   * isBrforeTime('2050/07/10 10:21:12')
+   * => true
+   *
+   * isBrforeTime('2008-08-10 10:21:12')
+   * => false
+   *
+   */
+
+  function isBrforeTime(date) {
+    return getTimeStamp() < getTimeStamp(date);
+  }
+
+  /**
+   * 判断当前时间是否在指定时间之前
+   *
+   * @param {string} date 参照的时间
+   * @returns {bool} true: 当前时间大于参照时间；false: 当前时间小于等于参照时间
+   *
+   * isAfterTime('1949/10/01 10:21:12')
+   * => true
+   *
+   * isAfterTime('2050-07-10 10:21:12')
+   * => false
+   *
+   */
+
+  function isAfterTime(date) {
+    return getTimeStamp() < getTimeStamp(date);
+  }
+
+  /**
    * 去除字符串中的所有空格
    *
    * @param {String} str 有空格的字符串
@@ -260,6 +296,8 @@
     getTimeStamp: getTimeStamp,
     formatdate: formatdate,
     formatCountDown: formatCountDown,
+    isBrforeTime: isBrforeTime,
+    isAfterTime: isAfterTime,
     trim: trim,
     trimStart: trimStart,
     trimEnd: trimEnd,
