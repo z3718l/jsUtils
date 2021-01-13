@@ -242,6 +242,47 @@
   }
 
   /**
+   * 判断当前时间是否在指定时间范围内
+   *
+   * @param {string} beforeDate 参照的起始时间
+   * @param {string} afterDate 参照的结束时间
+   * @returns {bool} true: 当前时间大于等于起始时间，并且当前时间小于等于结束时间；false: 当前时间小于起始时间，或者当前时间大于结束时间
+   *
+   * isBetween('1949/10/01 10:21:12', '2050/10/01 10:21:12')
+   * => true
+   *
+   * isBetween('1949-10-01 10:21:12', '2008/10/01 10:21:12')
+   * => false
+   *
+   */
+
+  function isBetween(beforeDate, afterDate) {
+    return getTimeStamp(beforeDate) <= getTimeStamp() && getTimeStamp() <= getTimeStamp(afterDate);
+  }
+
+  /**
+   * 判断一个时间戳和参照时间戳相比，是前天、昨天、今天、明天、后天
+   *
+   * @param {string} timeStamp 需要判断的时间戳, 单位毫秒
+   * @param {string} flagTimeStamp 参照的时间戳，默认是今天, 单位毫秒
+   * @returns {bool} 前天-2、昨天-1、今天0、明天1、后天2
+   *
+   * whichDay(1595751285439)
+   * => 0 // 前天-2、昨天-1、今天0、明天1、后天2
+   *
+   */
+  function whichDay(timeStamp) {
+    var flagTimeStamp = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : Date.now();
+    var oneDay = 24 * 60 * 60 * 1000; // 一天有多少秒
+    // 不采用 new Date().getTimezoneOffset() * 60 * 1000;
+    // 下面根据字符串获取时间戳能保持大家参照的是同一个时间，更为的严谨些
+
+    var correct = Date.parse("1970-01-01 00:00:00"); // 格林威治时间和本地时间之间的时差
+
+    return ~~((timeStamp - correct) / oneDay) - ~~((flagTimeStamp - correct) / oneDay); // ~~ 是直接丢弃小数取整 不进行4舍5入
+  }
+
+  /**
    * 去除字符串中的所有空格
    *
    * @param {String} str 有空格的字符串
@@ -298,6 +339,8 @@
     formatCountDown: formatCountDown,
     isBrforeTime: isBrforeTime,
     isAfterTime: isAfterTime,
+    isBetween: isBetween,
+    whichDay: whichDay,
     trim: trim,
     trimStart: trimStart,
     trimEnd: trimEnd,

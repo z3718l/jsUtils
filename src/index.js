@@ -13,6 +13,8 @@ import formatdate from "./formatdate/formatdate";
 import formatCountDown from "./formatdate/formatCountDown";
 import isBrforeTime from "./formatdate/isBrforeTime";
 import isAfterTime from "./formatdate/isAfterTime";
+import isBetween from "./formatdate/isBetween";
+import whichDay from "./formatdate/whichDay";
 
 // String
 import trim from "./string/trim";
@@ -31,6 +33,8 @@ const JSUtil = {
   formatCountDown,
   isBrforeTime,
   isAfterTime,
+  isBetween,
+  whichDay,
   trim,
   trimStart,
   trimEnd,
