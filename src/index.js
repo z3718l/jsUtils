@@ -33,6 +33,9 @@ import { constructorObjectType } from "./object/getObjectType";
 import { instanceofObjectType } from "./object/getObjectType";
 import { typeofObjectType } from "./object/getObjectType";
 
+// device
+import getDeviceType from "./device/getDeviceType";
+
 const JSUtil = {
   tostringFun,
   arrAttrUnique,
@@ -57,5 +60,6 @@ const JSUtil = {
   constructorObjectType,
   instanceofObjectType,
   typeofObjectType,
+  getDeviceType,
 };
 export default JSUtil;
