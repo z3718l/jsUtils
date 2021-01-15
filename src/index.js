@@ -25,6 +25,9 @@ import trimStartEnd from "./string/trimStartEnd";
 // url
 import getQueryParams from "./url/getQueryParams";
 
+// Object
+import delEmptyAttr from "./object/delEmptyAttr";
+
 const JSUtil = {
   tostringFun,
   arrAttrUnique,
@@ -43,5 +46,6 @@ const JSUtil = {
   trimEnd,
   trimStartEnd,
   getQueryParams,
+  delEmptyAttr,
 };
 export default JSUtil;
