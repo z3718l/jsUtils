@@ -28,6 +28,10 @@ import getQueryParams from "./url/getQueryParams";
 // Object
 import delEmptyAttr from "./object/delEmptyAttr";
 import isEmptyObject from "./object/isEmptyObject";
+import { callObjectType } from "./object/getObjectType";
+import { constructorObjectType } from "./object/getObjectType";
+import { instanceofObjectType } from "./object/getObjectType";
+import { typeofObjectType } from "./object/getObjectType";
 
 const JSUtil = {
   tostringFun,
@@ -49,5 +53,9 @@ const JSUtil = {
   getQueryParams,
   delEmptyAttr,
   isEmptyObject,
+  callObjectType,
+  constructorObjectType,
+  instanceofObjectType,
+  typeofObjectType,
 };
 export default JSUtil;

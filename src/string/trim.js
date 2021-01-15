@@ -9,5 +9,6 @@
 
 function trim(str) {
   return str.replace(/\s+/g, "");
+  // return str1 == null ? "" : String.prototype.trim.call(str1)
 }
 export default trim;
