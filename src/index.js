@@ -27,6 +27,7 @@ import getQueryParams from "./url/getQueryParams";
 
 // Object
 import delEmptyAttr from "./object/delEmptyAttr";
+import isEmptyObject from "./object/isEmptyObject";
 
 const JSUtil = {
   tostringFun,
@@ -47,5 +48,6 @@ const JSUtil = {
   trimStartEnd,
   getQueryParams,
   delEmptyAttr,
+  isEmptyObject,
 };
 export default JSUtil;
