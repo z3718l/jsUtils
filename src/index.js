@@ -22,6 +22,9 @@ import trimStart from "./string/trimStart";
 import trimEnd from "./string/trimEnd";
 import trimStartEnd from "./string/trimStartEnd";
 
+// url
+import getQueryParams from "./url/getQueryParams";
+
 const JSUtil = {
   tostringFun,
   arrAttrUnique,
@@ -39,5 +42,6 @@ const JSUtil = {
   trimStart,
   trimEnd,
   trimStartEnd,
+  getQueryParams,
 };
 export default JSUtil;
