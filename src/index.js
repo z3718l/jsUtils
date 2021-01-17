@@ -28,13 +28,18 @@ import getQueryParams from "./url/getQueryParams";
 // Object
 import delEmptyAttr from "./object/delEmptyAttr";
 import isEmptyObject from "./object/isEmptyObject";
-import { callObjectType } from "./object/getObjectType";
-import { constructorObjectType } from "./object/getObjectType";
-import { instanceofObjectType } from "./object/getObjectType";
-import { typeofObjectType } from "./object/getObjectType";
+import {
+  callObjectType,
+  constructorObjectType,
+  instanceofObjectType,
+  typeofObjectType,
+} from "./object/getObjectType";
 
 // device
 import getDeviceType from "./device/getDeviceType";
+
+// map
+import { wgs84togcj02, gcj02tobd09, gcj02towgs84 } from "./map/proj";
 
 const JSUtil = {
   tostringFun,
@@ -61,5 +66,8 @@ const JSUtil = {
   instanceofObjectType,
   typeofObjectType,
   getDeviceType,
+  wgs84togcj02,
+  gcj02tobd09,
+  gcj02towgs84,
 };
 export default JSUtil;
